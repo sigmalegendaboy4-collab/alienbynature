@@ -1,0 +1,12 @@
+[build]
+  publish = "."
+
+# index.html всегда проверяется заново, чтобы обновлённый список пользователей
+# появлялся сразу после выкладки новой версии.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    X-Robots-Tag = "noindex, nofollow"
